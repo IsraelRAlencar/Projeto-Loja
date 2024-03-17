@@ -30,8 +30,12 @@ class MyApp extends StatelessWidget {
             primary: Colors.purple,
             secondary: Colors.deepOrange,
           ),
+          textTheme:
+              const TextTheme(titleLarge: TextStyle(color: Colors.white)),
           fontFamily: 'Lato',
           useMaterial3: false,
+          primaryColor: Colors.purple,
+          primarySwatch: Colors.purple,
         ),
         home: const ProductsOverviewPage(),
         routes: {
