@@ -4,7 +4,7 @@ import 'package:shop/components/app_drawer.dart';
 import 'package:shop/components/product_item.dart';
 import 'package:shop/utils/app_routes.dart';
 
-import '../models/producto_list.dart';
+import '../models/product_list.dart';
 
 class ProductsPage extends StatelessWidget {
   const ProductsPage({super.key});
