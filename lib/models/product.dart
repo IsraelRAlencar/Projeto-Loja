@@ -21,19 +21,27 @@ class Product with ChangeNotifier {
     this.isFavorite = false,
   });
 
-  Future<void> toggleFavorite() async {
-    const baseUrl = Constants.BASE_URL;
-
+  void _toggleFavorite() {
     isFavorite = !isFavorite;
     notifyListeners();
+  }
 
-    await http.patch(
-      Uri.parse('$baseUrl/products/$id.json'),
-      body: jsonEncode(
-        {
-          "isFavorite": isFavorite,
-        },
-      ),
-    );
+  Future<void> toggleFavorite() async {
+    try {
+      _toggleFavorite();
+
+      final response = await http.patch(
+        Uri.parse('${Constants.BASE_URL}/products/$id.json'),
+        body: jsonEncode(
+          {
+            "isFavorite": isFavorite,
+          },
+        ),
+      );
+
+      if (response.statusCode >= 400) _toggleFavorite();
+    } catch (_) {
+      _toggleFavorite();
+    }
   }
 }
