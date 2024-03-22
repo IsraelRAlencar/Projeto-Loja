@@ -5,10 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:shop/exceptions/http_exception.dart';
 import 'package:shop/models/product.dart';
+import 'package:shop/utils/constants.dart';
 
 class ProductList with ChangeNotifier {
   final List<Product> _items = [];
-  final _baseUrl = 'https://shop-israel-default-rtdb.firebaseio.com';
+  final _baseUrl = Constants.BASE_URL;
 
   List<Product> get items => [..._items];
   List<Product> get favoriteItems =>
